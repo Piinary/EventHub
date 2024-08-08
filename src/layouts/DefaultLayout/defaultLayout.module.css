@@ -1,0 +1,14 @@
+.wrapper {
+    /* justify-content: space-between; */
+}
+
+.border_wrapper {
+    padding: 290px;
+    padding-right: 320px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.body {
+    height: 2000px;
+}

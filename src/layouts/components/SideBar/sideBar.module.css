@@ -1,0 +1,28 @@
+.wrapper {
+    height: 100vh;
+    position: fixed;
+    background-color: var(--neutral);
+    box-shadow: 0px 2px 2px #ccc;
+}
+
+.image {
+    width: 400px;
+    border-radius: 8px;
+}
+
+.image_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.position_l {
+    width: 292px;
+
+    left: 0;
+}
+
+.position_r {
+    width: 320px;
+    top: 0;
+    right: 0;
+}
