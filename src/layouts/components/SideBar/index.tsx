@@ -28,6 +28,7 @@ function SideBar(props: Props) {
 
     return ( <div className={clsx(props.position =='left'?  styles.position_l: styles.position_r, styles.wrapper)}>
         <h1>SideBar</h1>
+        
         <Button onClick={handleShow} variant='warning'>Button</Button>
         <div
       className="modal show"
