@@ -1,51 +1,38 @@
-import clsx from 'clsx';
-import styles from './sideBar.module.css';
-import { Button } from 'react-bootstrap';
-import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react';
-import img from '../../../../public/img.jfif';
-import { Bounce, ToastContainer, toast } from 'react-toastify';
+import { Ellipsis } from "lucide-react";
 interface Props {
-    position: 'left' | 'right';
+  children: React.ReactNode;
+  position: 'left'|'right';
 }
 function SideBar(props: Props) {
-    const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => {
-    toast('Hello cục cưng của anh', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-        });
-    setShow(true)};
-
-    return ( <div className={clsx(props.position =='left'?  styles.position_l: styles.position_r, styles.wrapper)}>
-        <h1>SideBar</h1>
-        
-        <Button onClick={handleShow} variant='warning'>Button</Button>
-        <div
-      className="modal show"
-      style={{ display: 'block', position: 'initial' }}
-    >
-      
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Siuuuu Yêu Emmmm</Modal.Title>
-        </Modal.Header>
-        <Modal.Body><div className={styles.image_wrapper}>
-        <img src={img} alt="" className={styles.image} />
-        </div></Modal.Body>
-        <br />
-      </Modal>
+  return (
+    <div className={`h-screen w-72 fixed ${ props.position=='right'? 'right-0' : 'left-0'}` } >
+      <nav className="h-full flex flex-col bg-[var(--neutral)]">
+        {/* <div className="flex justify-between items-center pl-5">
+            <img src="src\assets\logo.png" alt="logo" className="w-50" />
+          </div> */}
+        <h1 className="font-bold text-transparent bg-clip-text bg-gradient-to-l from-[var(--primary-gradient-1)] to-[var(--primary-gradient-2)] text-left m-4   ">
+          EventHub
+        </h1>
+        <div className="flex-1 px-2 ">{props.children}</div>
+        <div className="flex p-3">
+          <img
+            src="src\assets\avt.png"
+            alt="avt"
+            className="w-14 h-14 rounded-full"
+          />
+          <div className={`flex justify-between items-center w-52 ml-3`}>
+            <div>
+              <div className="font-bold text-lg">Phu Qui Vo</div>
+              <span className="text-xs text-gray-500">
+                phuquivo03.cb@gmail.com
+              </span>
+            </div>
+            <Ellipsis size={24} />
+          </div>
+        </div>
+      </nav>
     </div>
-    </div> );
+  );
 }
 
 export default SideBar;

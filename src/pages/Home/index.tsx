@@ -1,6 +1,4 @@
-import { Children } from "react";
 import DefaultLayout from "../../layouts/DefaultLayout";
-import Heading from '../../layouts/components/Heading/index';
 function Home() {
     return ( <>
         <DefaultLayout >
