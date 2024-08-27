@@ -4,7 +4,12 @@ import Heading from '../../layouts/components/Heading/index';
 function Home() {
     return ( <>
         <DefaultLayout >
-            <h1>Home pagedmmmmmmmmmmmasdaskdadma;smd;alsdmml;asmd;almdl;asmd;asmdl;asmdl;m</h1>
+            <div>
+                <div>
+                    <img src="src\assets\post_avt.png" alt="" />
+                    <div>Kim Tien Nguyen</div>
+                </div>
+            </div>
         </DefaultLayout>
     </> );
 }
