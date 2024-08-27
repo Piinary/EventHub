@@ -1,5 +1,7 @@
+import DefaultLayout from "../../layouts/DefaultLayout";
+
 function More() {
-    return ( <div><h1>More</h1></div> );
+    return ( <DefaultLayout><h1>More</h1></DefaultLayout> );
 }
 
 export default More;

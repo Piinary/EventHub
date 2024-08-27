@@ -1,5 +1,7 @@
+import DefaultLayout from "../../layouts/DefaultLayout";
+
 function Profile() {
-    return ( <div><h1>Profile</h1></div> );
+    return ( <DefaultLayout><h1>Profile</h1></DefaultLayout> );
 }
 
 export default Profile;

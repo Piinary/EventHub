@@ -15,7 +15,7 @@ const publicRoutes = [
   { path: config.routes.create, component: Create},
   { path: config.routes.saved, component: Saved},
   { path: config.routes.profile, component: Profile },
-  { path: config.routes.more, component: More``}
+  { path: config.routes.more, component: More}
 ];
 
 export { publicRoutes };

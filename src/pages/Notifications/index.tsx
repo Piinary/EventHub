@@ -1,5 +1,7 @@
+import DefaultLayout from "../../layouts/DefaultLayout";
+
 function Notifications() {
-    return ( <div><h1>Notifications</h1></div> );
+    return ( <DefaultLayout><h1>Notifications</h1></DefaultLayout> );
 }
 
 export default Notifications;

@@ -1,5 +1,7 @@
+import DefaultLayout from "../../layouts/DefaultLayout";
+
 function Saved() {
-    return ( <div><h1>Saved</h1></div> );
+    return ( <DefaultLayout><h1>Saved</h1></DefaultLayout> );
 }
 
 export default Saved;

@@ -1,5 +1,11 @@
+import DefaultLayout from "../../layouts/DefaultLayout";
+
 function Messages() {
-    return ( <div><h1>Messages</h1></div> );
+  return (
+    <DefaultLayout>
+      <h1>Messages</h1>
+    </DefaultLayout>
+  );
 }
 
 export default Messages;

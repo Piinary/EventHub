@@ -1,5 +1,7 @@
+import DefaultLayout from "../../layouts/DefaultLayout";
+
 function Explore() {
-    return (<div><h1>Explore</h1></div>  );
+    return (<DefaultLayout><h1>Explore</h1></DefaultLayout>  );
 }
 
 export default Explore;
