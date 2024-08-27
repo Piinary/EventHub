@@ -1,5 +1,5 @@
-import SideBar, { SideBarButton } from "../components/SideBar";
-import React from "react";
+import React, { useState } from "react";
+import SideBar from "../components/SideBar";
 import {
   House,
   Heart,
@@ -10,80 +10,35 @@ import {
   User,
   Menu,
 } from "lucide-react";
+import SideBarButton from "../../components/SideBarButton";
 
-const sideBarItems = [
-  {
-    icon: House,
-    text: "Home",
-    active: true,
-    alert: 0,
-    onClick: () => console.log("Home clicked"),
-  },
-  {
-    icon: Search,
-    text: "Explore",
-    active: false,
-    alert: 0,
-    onClick: () => console.log("Explore clicked"),
-  },
-  {
-    icon: Heart,
-    text: "Notifications",
-    active: false,
-    alert: 1, 
-    onClick: () => console.log("Notifications clicked"),
-  },
-  {
-    icon: MessageCircle,
-    text: "Message",
-    active: false,
-    alert: 102,
-    onClick: () => console.log("Message clicked"),
-  },
-  {
-    icon: PlusCircle,
-    text: "Create",
-    active: false,
-    alert: 0,
-    onClick: () => console.log("Create clicked"),
-  },
-  {
-    icon: Bookmark,
-    text: "Saved",
-    active: false,
-    alert: 0,
-    onClick: () => console.log("Saved clicked"),
-  },
-  {
-    icon: User,
-    text: "Profile",
-    active: false,
-    alert: 0,
-    onClick: () => console.log("Profile clicked"),
-  },
-  {
-    icon: Menu,
-    text: "More",
-    active: false,
-    alert: 0,
-    onClick: () => console.log("More clicked"),
-  },
+const sideBarItemsConfig = [
+  { icon: House, text: "Home", alert: 0, path: "/" },
+  { icon: Search, text: "Explore", alert: 0, path: "/explore" },
+  { icon: Heart, text: "Notifications", alert: 1, path:"/notifications"},
+  { icon: MessageCircle, text: "Messages", alert: 102, path:"/messages" },
+  { icon: PlusCircle, text: "Create", alert: 0, path: "/create" },
+  { icon: Bookmark, text: "Saved", alert: 0, path:"/saved"},
+  { icon: User, text: "Profile", alert: 0, path:"/profile" },
+  { icon: Menu, text: "More", alert: 0, path:"/more" },
 ];
 
 function DefaultLayout({ children }: { children: React.ReactNode }) {
+  const [active, setActive] = useState(0);
   return (
     <div className="font-title">
       <SideBar>
-        {sideBarItems.map((item, index) => (
+        {sideBarItemsConfig.map((item, index) => (
           <SideBarButton
             key={index}
             icon={
-              <item.icon size={32} strokeWidth={item.active ? "2.5" : "1.5"} />
+              <item.icon size={32} strokeWidth={active === index ? "2.5" : "1.5"} />
             }
             text={item.text}
-            active={item.active}
+            active={active === index}
             alert={item.alert}
-            onClick={item.onClick}
+            onClick={() => setActive(index)}
+            path= {item.path}
           />
         ))}
       </SideBar>
