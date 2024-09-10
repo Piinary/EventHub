@@ -9,7 +9,9 @@ const routes = {
   saved: "saved",
   profile: "/profile",
   more: "/more",
+
   detailpage: "/detailpage",
+
 
 };
 
