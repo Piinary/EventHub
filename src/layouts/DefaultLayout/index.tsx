@@ -45,27 +45,8 @@ function DefaultLayout({ children }: { children: React.ReactNode }) {
           />
         ))}
       </SideBar>
-      <div>
-      <div className="w-screen flex flex-col items-center">{children}</div>
-      </div>
-      <SideBar position="right">
-        {sideBarItemsConfig.map((item, index) => (
-          <SideBarButton
-            key={index}
-            icon={
-              <item.icon
-                size={32}
-                strokeWidth={active === index ? "2.5" : "1.5"}
-              />
-            }
-            text={item.text}
-            active={active === index}
-            alert={item.alert}
-            onClick={() => setActive(index)}
-            path={item.path}
-          />
-        ))}
-      </SideBar>
+      <div className="w-screen mr-11 ml-[332px]">{children}</div>
+
     </div>
   );
 }

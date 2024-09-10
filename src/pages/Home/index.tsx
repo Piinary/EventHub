@@ -36,6 +36,7 @@ const data = [
   },
 ];
 function Home() {
+
   return (
     <DefaultLayout>
       {data.map((item) => (

@@ -9,7 +9,10 @@ const routes = {
   saved: "saved",
   profile: "/profile",
   more: "/more",
-  detailpage:"/detailpage",
+
+  detailpage: "/detailpage",
+
+
 };
 
 export default routes;
