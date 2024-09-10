@@ -7,6 +7,7 @@ import Messages from "../pages/Messages";
 import Create from "../pages/Create";
 import Saved from "../pages/Saved";
 import More from "../pages/More";
+import DetailPage from "../pages/DetailPage";
 const publicRoutes = [
   { path: config.routes.home, component: Home },
   { path: config.routes.explore, component: Explore},
@@ -15,7 +16,8 @@ const publicRoutes = [
   { path: config.routes.create, component: Create},
   { path: config.routes.saved, component: Saved},
   { path: config.routes.profile, component: Profile },
-  { path: config.routes.more, component: More}
+  { path: config.routes.more, component: More},
+  { path: config.routes.detailpage, component: DetailPage}
 ];
 
 export { publicRoutes };

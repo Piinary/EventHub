@@ -27,7 +27,7 @@ function DefaultLayout({ children }: { children: React.ReactNode }) {
   const [active, setActive] = useState(0);
   return (
     <div className="font-title flex">
-      <SideBar position="left">
+      <SideBar position="left" >
         {sideBarItemsConfig.map((item, index) => (
           <SideBarButton
             key={index}
@@ -45,7 +45,9 @@ function DefaultLayout({ children }: { children: React.ReactNode }) {
           />
         ))}
       </SideBar>
-      <div className="flex-1">{children}</div>
+      <div>
+      <div className="w-screen flex flex-col items-center">{children}</div>
+      </div>
       <SideBar position="right">
         {sideBarItemsConfig.map((item, index) => (
           <SideBarButton
