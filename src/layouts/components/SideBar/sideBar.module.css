@@ -1,7 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .wrapper {
     height: 100vh;
     position: fixed;
-    background-color: var(--neutral);
+    background-color: var(--primary-gradient-1);
     box-shadow: 0px 2px 2px #ccc;
 }
 
