@@ -11,6 +11,7 @@ import {
   Menu,
 } from "lucide-react";
 import SideBarButton from "../../components/SideBarButton";
+import SuggestTag from "../../components/SuggestTag";
 
 const sideBarItemsConfig = [
   { icon: House, text: "Home", alert: 0, path: "/" },

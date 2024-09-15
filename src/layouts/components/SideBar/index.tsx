@@ -5,7 +5,7 @@ interface Props {
 }
 function SideBar(props: Props) {
   return (
-    <div className={`h-screen w-72 fixed ${ props.position=='right'? 'right-0' : 'left-0'}` } >
+    <div className={`h-screen w-72 float  ${ props.position=='right'? 'right-0' : 'left-0'}` } >
       <nav className="h-full flex flex-col bg-[var(--neutral)]">
         {/* <div className="flex justify-between items-center pl-5">
             <img src="src\assets\logo.png" alt="logo" className="w-50" />
