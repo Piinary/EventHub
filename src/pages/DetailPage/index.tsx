@@ -99,9 +99,11 @@ function DetailPage() {
   ];
   return (
     <DefaultLayout>
+      <div className="ml-[332px]">
       <div className="flex gap-5 w-full h-fit min-h-[96vh] p-5 my-3 bg-white rounded-[20px]">
         <EventRegister data={data[0]}></EventRegister>
         <EventInformation data={data[0]}></EventInformation>
+      </div>
       </div>
     </DefaultLayout>
   );

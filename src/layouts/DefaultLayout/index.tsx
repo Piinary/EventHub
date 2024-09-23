@@ -45,7 +45,7 @@ function DefaultLayout({ children }: { children: React.ReactNode }) {
           />
         ))}
       </SideBar>
-      <div className="w-screen mr-11 ml-[332px]">{children}</div>
+      <div className="w-screen mr-11 flex flex-col items-center">{children}</div>
 
     </div>
   );
