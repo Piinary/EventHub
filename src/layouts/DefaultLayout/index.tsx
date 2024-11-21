@@ -28,30 +28,26 @@ function DefaultLayout({ children }: { children: React.ReactNode }) {
   const [active, setActive] = useState(0);
   return (
     <div className="font-title flex">
-      <div className="sidebar">
-        <SideBar position="left">
-          {sideBarItemsConfig.map((item, index) => (
-            <SideBarButton
-              key={index}
-              icon={
-                <item.icon
-                  size={32}
-                  strokeWidth={active === index ? "2.5" : "1.5"}
-                />
-              }
-              text={item.text}
-              active={active === index}
-              alert={item.alert}
-              onClick={() => setActive(index)}
-              path={item.path}
-            />
-          ))}
-        </SideBar>
-      </div>
-      <div className="flex-1">{children}</div>
-      <SideBar position="right">
-        <SuggestTag data={{}}/>
+      <SideBar position="left" >
+        {sideBarItemsConfig.map((item, index) => (
+          <SideBarButton
+            key={index}
+            icon={
+              <item.icon
+                size={32}
+                strokeWidth={active === index ? "2.5" : "1.5"}
+              />
+            }
+            text={item.text}
+            active={active === index}
+            alert={item.alert}
+            onClick={() => setActive(index)}
+            path={item.path}
+          />
+        ))}
       </SideBar>
+      <div className="w-screen mr-11 ml-[332px]">{children}</div>
+
     </div>
   );
 }
