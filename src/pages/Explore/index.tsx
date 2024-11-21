@@ -13,6 +13,7 @@ function Explore() {
 
 
     </DefaultLayout>  );
+
 }
 
 export default Explore;
