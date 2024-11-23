@@ -1,6 +1,8 @@
+import { useState } from "react";
+import { getEvents } from "../../api/Event";
 import Post from "../../components/Post";
 import DefaultLayout from "../../layouts/DefaultLayout";
-
+import type { Event } from "../../api/Event";
 const data = [
   {
     id: "1",
@@ -36,15 +38,19 @@ const data = [
   },
 ];
 function Home() {
+  const [events, setEvents] = useState<Event[]>([]);
 
+  getEvents().then((data) => {
+    setEvents(data);
+  });
   return (
     <DefaultLayout>
-      {data.map((item) => (
+      {events.map((item) => (
         <Post
           id={0}
-          avatar={item.avatar}
-          username={item.username}
-          postImage={item.postImage}
+          avatar= "src\\assets\\post_avt.png"
+          username= "Kim Tien Nguyen"
+          postImage={item.image}
           title={item.title}
           saved={false}
         />
