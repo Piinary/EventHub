@@ -1,3 +1,4 @@
+import { getEvents } from "../../api/event-api";
 import Post from "../../components/Post";
 import DefaultLayout from "../../layouts/DefaultLayout";
 
@@ -36,7 +37,8 @@ const data = [
   },
 ];
 function Home() {
-
+  const value = getEvents();
+  value.then((res) => console.log(res));
   return (
     <DefaultLayout>
       {data.map((item) => (
