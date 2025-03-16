@@ -128,6 +128,7 @@ function EventRegister(props: Props) {
       {/* Button */}
       <Button
         fill_bg
+        size="m"
         callback={() => {
           console.log(props.submitData);
         }}

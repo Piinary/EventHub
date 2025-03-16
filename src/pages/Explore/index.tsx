@@ -1,19 +1,11 @@
-import Card from "../../components/Card";
 import DefaultLayout from "../../layouts/DefaultLayout";
-
-
-const cards = [
-    'red',
-    'blue',
-    'green',
-]
+import { Calendar } from "lucide-react";
 function Explore() {
-    return (<DefaultLayout>
-            {cards.map((card, index) =><Card key={index} color={card} />)}
-
-
-    </DefaultLayout>  );
-
+  return (
+    <DefaultLayout>
+      <div></div>
+    </DefaultLayout>
+  );
 }
 
 export default Explore;
