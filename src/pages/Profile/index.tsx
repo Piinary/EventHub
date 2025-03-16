@@ -3,15 +3,48 @@ import DefaultLayout from "../../layouts/DefaultLayout";
 import Button from "../../components/Button";
 import BriefPost from "../../components/BriefPost";
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
+const data = {
+  username: "Phu Qui Vo",
+  attended: "10",
+  hosted: "10",
+  joined: "June 23, 2024",
+  avt: "../../assets/avt.png",
+  events: [
+    {
+      id: "1",
+      postImage: "src\\assets\\post_image.png",
+      viewCount: "1000",
+    },
+    {
+      id: "2",
+      postImage: "src\\assets\\post_image.png",
+      viewCount: "1000",
+    },
+    {
+      id: "3",
+      postImage: "src\\assets\\post_image.png",
+      viewCount: "1000",
+    },
+    {
+      id: "4",
+      postImage: "src\\assets\\post_image.png",
+      viewCount: "1000",
+    },
+    {
+      id: "5",
+      postImage: "src\\assets\\post_image.png",
+      viewCount: "1000",
+    },
+  ],
+};
 function Profile() {
   const [follow, setFollow] = useState(false);
   const [activeTab, setActiveTab] = useState("events");
   return (
     <DefaultLayout>
       <div className="flex flex-col gap-2 w-full h-fit min-h-[96vh] p-5 my-3 bg-white rounded-[20px]">
-        
         {/* information */}
         <div className="flex justify-between">
           <div className="flex gap-4 ">
@@ -24,15 +57,17 @@ function Profile() {
             {/* bio*/}
             <div className="flex flex-col justify-around items-start">
               <div className="flex flex-col">
-                <div className="text-2xl font-bold text-left">Phu Qui Vo</div>
+                <div className="text-2xl font-bold text-left">
+                  {data.username}
+                </div>
                 <span className="flex gap-1 text-sm text-gray-500 items-center">
                   <Calendar size={16}></Calendar>
-                  Join June 23, 2024
+                  {data.joined}
                 </span>
               </div>
               <div className="flex gap-3">
-                <span>10 Hosted</span>
-                <span>10 Attended</span>
+                <span>{data.hosted} Hosted</span>
+                <span>{data.attended} Attended</span>
               </div>
             </div>
           </div>
@@ -45,21 +80,13 @@ function Profile() {
               callback={() => setFollow(!follow)}
               text={follow ? "Followed" : "Follow"}
             />
-            <Link to='/messages' >
-            <Button border size="s" callback={() => {}} text="Message" />
+            <Link to="/messages" className="no-underline">
+              <Button border size="s" callback={() => {}} text="Message" />
             </Link>
             <Ellipsis className="cursor-pointer" size={32} strokeWidth={1} />
           </div>
         </div>
-        {/* nav */}
-        {/* <div>
-          <div className="mt-4 border border-1 border-[var(--neutral)]"></div>
-        </div>
-        Posts */}
-        {/* <div className="mb-1 flex items-center justify-center space-x-4 text-sm text-gray-400">
-          <span className="cursor-pointer">EVENTS</span>
-          <span className="cursor-pointer">TAGGED</span>
-        </div> */}
+
         <div className="flex border-t border-gray-200 justify-center">
           {["events", "tagged"].map((tab) => (
             <button
@@ -69,7 +96,7 @@ function Profile() {
                   ? "font-ybold text-transparent bg-clip-text bg-gradient-to-l from-[var(--primary-gradient-1)] to-[var(--primary-gradient-2)]"
                   : "font-medium text-gray-500 bg-white hover:text-gray-900"
               }`}
-              onClick={() => setActiveTab(tab)}  
+              onClick={() => setActiveTab(tab)}
             >
               {tab.toUpperCase()}
               {activeTab === tab && (
@@ -78,12 +105,14 @@ function Profile() {
             </button>
           ))}
         </div>
-        <div className="grid grid-cols-3 gap-2 cursor-pointer">
-          <BriefPost></BriefPost>
-          <BriefPost></BriefPost>
-          <BriefPost></BriefPost>
-          <BriefPost></BriefPost>
-          <BriefPost></BriefPost>
+        <div className="grid grid-cols-3 gap-4">
+          {data.events.map((event) => (
+            <BriefPost
+              key={event.id}
+              postImage={event.postImage}
+              viewCount={event.viewCount}
+            />
+          ))}
         </div>
       </div>
     </DefaultLayout>
