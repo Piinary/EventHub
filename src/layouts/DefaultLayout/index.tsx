@@ -11,6 +11,7 @@ import {
   Menu,
 } from "lucide-react";
 import SideBarButton from "../../components/SideBarButton";
+import { useAppContext } from "../../context";
 
 const sideBarItemsConfig = [
   { icon: House, text: "Home", alert: 0, path: "/" },
@@ -24,28 +25,35 @@ const sideBarItemsConfig = [
 ];
 
 function DefaultLayout({ children }: { children: React.ReactNode }) {
-  const [active, setActive] = useState(0);
+  const {activePage, setActivePage} = useAppContext();
   return (
     <div className="font-title flex">
-      <SideBar position="left" >
+      <SideBar position="left" fixed >
         {sideBarItemsConfig.map((item, index) => (
           <SideBarButton
+          
             key={index}
             icon={
               <item.icon
                 size={32}
-                strokeWidth={active === index ? "2.5" : "1.5"}
+                strokeWidth={activePage === index ? "2.5" : "1.5"}
               />
             }
             text={item.text}
-            active={active === index}
+            active={activePage === index}
             alert={item.alert}
-            onClick={() => setActive(index)}
+            onClick={() => setActivePage(index)}
             path={item.path}
           />
         ))}
       </SideBar>
-      <div className="w-screen mr-11 ml-[332px]">{children}</div>
+      <div className="w-screen ml-[332px]">{children}
+
+
+
+      </div>
+
+     
 
     </div>
   );
