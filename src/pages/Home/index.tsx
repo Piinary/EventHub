@@ -55,10 +55,12 @@ function Home() {
           />
         ))}</div>
           <SideBar position="right" fixed >
-            <SuggestTag data={{
-              img: '',
-              title: ''
-            }} />
+            <div className="flex flex-col gap-2">{[0,0,0,0,0].map((item, index) => {
+              return <SuggestTag key={index} data={{
+                img: '',
+                title: ''
+              }} />
+            })}</div>
           </SideBar></div>
       
     </DefaultLayout>
