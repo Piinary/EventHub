@@ -1,5 +1,4 @@
-import DefaultErrorImage from '../../assets/poster.png';
-import DefaultAvatar from '../../assets/default-avatar.svg';
+import DefaultErrorImage from '../../assets/poster.png'; 
 interface Props {
     data: any
 }
