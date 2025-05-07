@@ -1,8 +1,5 @@
-import { Sidebar } from "lucide-react";
 import Post from "../../components/Post";
 import DefaultLayout from "../../layouts/DefaultLayout";
-import SideBar from "../../layouts/components/SideBar";
-import SuggestTag from "../../components/SuggestTag";
 
 const data = [
   {
@@ -42,27 +39,16 @@ function Home() {
 
   return (
     <DefaultLayout>
-      
-      <div className="flex justify-center">
-        <div className="mr-[332px]">{data.map((item) => (
-          <Post
+      {data.map((item) => (
+        <Post
           id={0}
           avatar={item.avatar}
           username={item.username}
           postImage={item.postImage}
           title={item.title}
           saved={false}
-          />
-        ))}</div>
-          <SideBar position="right" fixed >
-            <div className="flex flex-col gap-2">{[0,0,0,0,0].map((item, index) => {
-              return <SuggestTag key={index} data={{
-                img: '',
-                title: ''
-              }} />
-            })}</div>
-          </SideBar></div>
-      
+        />
+      ))}
     </DefaultLayout>
   );
 }
