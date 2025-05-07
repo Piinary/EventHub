@@ -1,11 +1,12 @@
-import DefaultErrorImage from '../../assets/poster.png'; 
+import DefaultErrorImage from '../../assets/poster.png';
+import DefaultAvatar from '../../assets/default-avatar.svg';
 interface Props {
     data: any
 }
 function SuggestTag(props: Props) {
     
     return (
-    <div className='flex align-center bg-white w-full p-2 rounded-[10px]' >
+    <div className='flex align-center'>
         <img className='w-[72px] h-[72px]' src={props.data.img||DefaultErrorImage} alt="loading" />
         <div className='ml-[6px] flex-1 w-[100%]'>
             <div className='min-h-10'><span className='text-xs font-bold text-left line-clamp-2'>{props.data.title||`Vòng Bán kết Khu vực | FPT Edu Tích Tịch Tình Tang 2024| FPT Edu Tích Tịch Tình Tang 2024| FPT Edu Tích Tịch Tình Tang 2024`} </span></div>

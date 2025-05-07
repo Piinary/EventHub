@@ -76,16 +76,19 @@ function Create() {
           />
 
           {/* Date time picker */}
-          <div className="flex flex-col gap-3 p-2 border-[2px] border-[var(--neutral)] rounded-lg">
+          <div className="flex flex-col gap-3 p-3 border-[2px] border-[var(--neutral)] rounded-lg">
             <div className="flex gap-3">
               <div className="flex w-1/2 gap-2">
                 <span className="flex items-center">Start:</span>
-                <TimePicker setTime={setStartTime}></TimePicker>
+                <TimePicker
+                  setTime={setStartTime}
+                ></TimePicker>
               </div>
 
               <div className="flex w-1/2 gap-2">
                 <span className="flex items-center">End:</span>
-                <TimePicker setTime={setEndTime}></TimePicker>
+                <TimePicker
+                 setTime={setEndTime}></TimePicker>
               </div>
             </div>
 
@@ -107,7 +110,7 @@ function Create() {
             }}
             rows={1}
             placeholder="Contributor(s)"
-            className="bg-white border-[2px] border-[var(--neutral)] rounded-lg p-2 overflow-y-hidden resize-none"
+            className="bg-white border-[2px] border-[var(--neutral)] rounded-lg p-1 overflow-y-hidden resize-none"
           ></textarea>
           <textarea
             onChange={(event) => {
@@ -115,7 +118,7 @@ function Create() {
             }}
             rows={1}
             placeholder="Description"
-            className="bg-white border-[2px] border-[var(--neutral)] rounded-lg p-2 flex-1 overflow-y-hidden resize-none"
+            className="bg-white border-[2px] border-[var(--neutral)] rounded-lg p-1 flex-1 overflow-y-hidden resize-none"
           ></textarea>
         </div>
       </div>

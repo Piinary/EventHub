@@ -13,7 +13,7 @@ interface PostData {
 function Post(postData: PostData) {
     const [marked, setMarked] =useState(false)
   return (
-    <div className="mt-2 flex justify-center">
+    <div className="mt-2">
       <svg width="0" height="0">
         <linearGradient id="gradient" x1="100%" y1="100%" x2="0%" y2="0%">
           <stop stopColor="#FFB9D2" offset="0%" />
