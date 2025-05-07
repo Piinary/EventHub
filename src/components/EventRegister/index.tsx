@@ -1,40 +1,33 @@
 import { MapPinned, Image } from "lucide-react";
 import Button from "../Button";
+import Switch from "../ToggleSwitch";
 import CounterInput from "../CounterInput";
 import { useState } from "react";
 import ToggleSwitch from "../ToggleSwitch";
-
 interface Props {
   data: any;
   editable?: boolean;
-  setImage?: (file: File) => void;
-  setCapacity?: (capacity: number) => void;
-  setPrivateEvent?: (privateEvent: boolean) => void;
-  capacity?: number;
-  privateEvent?: boolean;
-  submitData?: any;
+  setImage: (file: File) => void;
+  setCapacity: (capacity: number) => void;
+  setPrivateEvent: (privateEvent: boolean) => void;
+  capacity: number;
+  privateEvent: boolean;
+  submitData: any;
 }
 
 function EventRegister(props: Props) {
   const [src, setSrc] = useState<string>("");
-
-  // Gán giá trị mặc định nếu props là undefined
-  const capacity = props.capacity ?? 0;
-  const privateEvent = props.privateEvent ?? false;
-
+  console.log(src);
   return (
     <div className="flex flex-col gap-4 ">
       {/* Image */}
+
       <img
         className="w-[250px] h-[250px] rounded-lg"
         src={src || props.data.image}
         alt=""
       />
-
-      <label
-        htmlFor="inImg"
-        className={`absolute ml-[210px] mt-[210px] ${props.editable ? "" : "hidden"}`}
-      >
+      <label htmlFor="inImg" className="absolute ml-[210px] mt-[210px]">
         <Image size={32} stroke="url(#gradient)"></Image>
       </label>
 
@@ -43,9 +36,11 @@ function EventRegister(props: Props) {
           id="inImg"
           onChange={(event) => {
             const file = event.target.files;
-            if (file?.length && file[0]) {
-              setSrc(URL.createObjectURL(file[0]));
-              props.setImage?.(file[0]);
+            if (file?.length) {
+              if (file[0]) {
+                setSrc(URL.createObjectURL(file[0]));
+                props.setImage(file[0]);
+              }
             }
           }}
           type="file"
@@ -79,7 +74,7 @@ function EventRegister(props: Props) {
         </div>
 
         <div className="flex gap-2 items-center cursor-pointer">
-          {/* Location icon */}
+          {/* Loction icon */}
           <div className="rounded-[4px] flex items-center justify-center w-10 h-10 bg-primary p-[1px]">
             <div className="rounded-[3px] flex items-center justify-center bg-white w-full h-full">
               <MapPinned size={24} strokeWidth={1.5} stroke="url(#gradient)" />
@@ -104,9 +99,9 @@ function EventRegister(props: Props) {
           <span>Capacity</span>
           {/* Capacity input */}
           <CounterInput
-            capacity={capacity}
+            capacity={props.capacity}
             onChange={(value: number) => {
-              props.setCapacity?.(value);
+              props.setCapacity(value);
             }}
           />
         </div>
@@ -116,10 +111,11 @@ function EventRegister(props: Props) {
             {/* Private */}
             <span className="text-xl">Private</span>
             {/* Private ? */}
+
             <ToggleSwitch
-              privateEvent={privateEvent}
+              privateEvent={props.privateEvent}
               onChange={(value: boolean) => {
-                props.setPrivateEvent?.(value);
+                props.setPrivateEvent(value);
               }}
             />
           </div>
@@ -132,7 +128,6 @@ function EventRegister(props: Props) {
       {/* Button */}
       <Button
         fill_bg
-        size="m"
         callback={() => {
           console.log(props.submitData);
         }}
@@ -141,5 +136,4 @@ function EventRegister(props: Props) {
     </div>
   );
 }
-
 export default EventRegister;
